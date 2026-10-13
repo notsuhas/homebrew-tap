@@ -1,12 +1,12 @@
 class AgentBackbone < Formula
   desc "Sync skills and shared agent instructions from your Git repository"
   homepage "https://github.com/notsuhas/agent-backbone"
-  url "https://github.com/notsuhas/agent-backbone/archive/refs/tags/v0.1.0.tar.gz"
-  sha256 "159c078089dd26ac6ada1c36719e8376caeb8b420f0b850d0bc57fb15a33dfc3"
+  url "https://github.com/notsuhas/agent-backbone/releases/download/v0.2.0/agent-backbone-0.2.0.tgz"
+  sha256 "f91fb716cf1199d5b1ecbdf44715cfcb0d0a84e46aabba29bcdc03a1754020a2"
   license "MIT"
 
   depends_on "git"
-  depends_on "python@3.14"
+  depends_on "node@22"
 
   resource "skillshare" do
     version "0.25.10"
@@ -28,7 +28,7 @@ class AgentBackbone < Formula
   end
 
   def install
-    libexec.install "bin", "lib", "README.md", "LICENSE"
+    libexec.install "bin", "dist", "package.json", "README.md", "LICENSE", "THIRD_PARTY_NOTICES.md"
     resource("skillshare").stage do
       (libexec/"vendor").install "skillshare"
       (libexec/"vendor").install "LICENSE" => "skillshare-LICENSE" if File.exist?("LICENSE")
@@ -36,7 +36,7 @@ class AgentBackbone < Formula
     (bin/"agent-backbone").write <<~EOS
       #!/bin/sh
       export AGENT_BACKBONE_COMMAND="#{HOMEBREW_PREFIX}/bin/agent-backbone"
-      exec "#{Formula["python@3.14"].opt_bin}/python3.14" "#{libexec}/bin/agent-backbone" "$@"
+      exec "#{Formula["node@22"].opt_bin}/node" "#{libexec}/dist/cli.js" "$@"
     EOS
     chmod 0755, bin/"agent-backbone"
   end
