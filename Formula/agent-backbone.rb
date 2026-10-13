@@ -1,8 +1,8 @@
 class AgentBackbone < Formula
   desc "Sync skills and shared agent instructions from your Git repository"
   homepage "https://github.com/notsuhas/agent-backbone"
-  url "https://github.com/notsuhas/agent-backbone/releases/download/v0.4.0/agent-backbone-0.4.0.tgz"
-  sha256 "cd02d56c4c27edab26ac31dc03db078cf53935096b2d82d8b961cb25d1ee5f68"
+  url "https://github.com/notsuhas/agent-backbone/releases/download/v0.4.1/agent-backbone-0.4.1.tgz"
+  sha256 "f38d5818568d60fc1cf5455e84736490f6ee190c81876c9d65389b5c98f90ef2"
   license "MIT"
 
   depends_on "git"
