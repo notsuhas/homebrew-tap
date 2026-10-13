@@ -1,29 +1,29 @@
 class AgentBackbone < Formula
   desc "Automatic refresh and complete-plugin delivery for Skillshare"
   homepage "https://github.com/notsuhas/agent-backbone"
-  url "https://github.com/notsuhas/agent-backbone/releases/download/v0.5.1/agent-backbone-0.5.1.tgz"
-  sha256 "2e0906e7f25d6b63c65e0ced80799867cd4c4632550b88431178619cccd0c62d"
+  url "https://github.com/notsuhas/agent-backbone/releases/download/v0.6.0/agent-backbone-0.6.0.tgz"
+  sha256 "c80f0046d2d186d3f16a2c27b2f5aca306b9efaa259ffb62c644ce1877bf8655"
   license "MIT"
 
   depends_on "git"
   depends_on "node@22"
 
   resource "skillshare" do
-    version "0.25.10"
+    version "0.25.11"
     if OS.mac?
       if Hardware::CPU.arm?
-        url "https://github.com/runkids/skillshare/releases/download/v0.25.10/skillshare_0.25.10_darwin_arm64.tar.gz"
-        sha256 "1f6ada0546d4007d6520fb063e8f2dcb00f3e1833a26845ed7a96f8f59cfd46f"
+        url "https://github.com/runkids/skillshare/releases/download/v0.25.11/skillshare_0.25.11_darwin_arm64.tar.gz"
+        sha256 "4e7bec76c49fea9cacef3076cc7b668262ca3655eac3583872f870d2dc4fc496"
       else
-        url "https://github.com/runkids/skillshare/releases/download/v0.25.10/skillshare_0.25.10_darwin_amd64.tar.gz"
-        sha256 "399a2e82d08423080c4cf797ff68e566b08c4e6ed3d42c5d34af4b02dc8ac7fb"
+        url "https://github.com/runkids/skillshare/releases/download/v0.25.11/skillshare_0.25.11_darwin_amd64.tar.gz"
+        sha256 "783903b2d6e7e357678a7ac9a61bf10e673cc572aa2c1b1619b17fe02258ea0d"
       end
     elsif Hardware::CPU.arm?
-      url "https://github.com/runkids/skillshare/releases/download/v0.25.10/skillshare_0.25.10_linux_arm64.tar.gz"
-      sha256 "323544db97a37a59969f29c9c1a87fa0278939ae7d40c92e4e5f28c55ca10060"
+      url "https://github.com/runkids/skillshare/releases/download/v0.25.11/skillshare_0.25.11_linux_arm64.tar.gz"
+      sha256 "562e8f8ebd06df200e1e56266cdad3822781d183ae6696d7b09e37b2e6003994"
     else
-      url "https://github.com/runkids/skillshare/releases/download/v0.25.10/skillshare_0.25.10_linux_amd64.tar.gz"
-      sha256 "ce2220d8a32e01ae319dda4a3ce8db10e90a5c9fd67fc2a0995d4e6e40e50d29"
+      url "https://github.com/runkids/skillshare/releases/download/v0.25.11/skillshare_0.25.11_linux_amd64.tar.gz"
+      sha256 "2ae0f8fce4ecd79be6ff44cc6423d03fbd80ac89b825104bae1afc9580a66b5d"
     end
   end
 
@@ -52,6 +52,6 @@ class AgentBackbone < Formula
   test do
     assert_equal "agent-backbone #{version}", shell_output("#{bin}/agent-backbone --version").strip
     assert_match "configure", shell_output("#{bin}/agent-backbone --help")
-    assert_match "skillshare v0.25.10", shell_output("#{libexec}/vendor/skillshare version")
+    assert_match "skillshare v0.25.11", shell_output("#{libexec}/vendor/skillshare version")
   end
 end
