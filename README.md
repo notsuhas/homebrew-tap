@@ -1,8 +1,14 @@
-# Agent Backbone Homebrew tap
+# notsuhas/tap
+
+My Homebrew formulae.
 
 ```sh
-brew install notsuhas/tap/agent-backbone
-agent-backbone configure you/agents
+brew install notsuhas/tap/<formula>
 ```
 
-The tool is generic; your skills and global instructions stay in the Git repository you configure. The formula pins tool releases and checksums the bundled Skillshare engine for macOS/Linux, arm64/amd64.
+| Formula | What it is |
+| --- | --- |
+| [envden](https://envden.theclau.de) | Self-hosted encrypted environment sync |
+| [agent-backbone](https://github.com/notsuhas/agent-backbone) | Automatic refresh and complete-plugin delivery for Skillshare |
+
+Each project's release workflow updates its formula, so don't edit them by hand.
