@@ -1,31 +1,28 @@
 class Envden < Formula
   desc "Self-hosted encrypted environment sync"
   homepage "https://envden.theclau.de"
-  version "0.1.0"
+  version "0.2.0"
   license "MIT"
   on_macos do
     if Hardware::CPU.arm?
       url "https://github.com/notsuhas/envden/releases/download/v#{version}/envden-darwin-arm64"
-      sha256 "a652745aa0b0507cd870a8211ab35de5d03d611f3a8f2616243a0bc7ba38cb7f"
+      sha256 "f5dd0ebd0bdd25e6f1d083f874a8c0b4e81045fd9f6ebe3427025bef8d82fd37"
     else
       url "https://github.com/notsuhas/envden/releases/download/v#{version}/envden-darwin-x64"
-      sha256 "54f5e8b77f9f5a84759ca2cbdff506e461f9ce353dea54d897e1fd8c9e933130"
+      sha256 "a079abd3bd39933c67d7c4e277c21fa6bf5c52604f8ba293418d90adbddffb3b"
     end
   end
   on_linux do
     if Hardware::CPU.arm?
       url "https://github.com/notsuhas/envden/releases/download/v#{version}/envden-linux-arm64"
-      sha256 "9f80ea8a307357de4a06262df30b34d1d4f46c904f849721b0d056c964276dbf"
+      sha256 "e495ae3205d7a05911c59a87668bb785d75aaa5ef7a43003e78410f5e419babd"
     else
       url "https://github.com/notsuhas/envden/releases/download/v#{version}/envden-linux-x64"
-      sha256 "e2c040a41e9883d8ceb913f6744f583c816730648d965079e893d7b005d63d1c"
+      sha256 "f01bfc75f76933eb01e0bbbea3b039bfe308850e1632fda860a0f6ab5c0f0cca"
     end
   end
   def install
     bin.install Dir["envden-*"].first => "envden"
-  end
-  def caveats
-    "Run with ENVDEN_INSTALL_METHOD=brew so envden update uses Homebrew."
   end
   test do
     system bin/"envden", "--version"
