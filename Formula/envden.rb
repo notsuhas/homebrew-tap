@@ -1,24 +1,24 @@
 class Envden < Formula
   desc "Self-hosted encrypted environment sync"
   homepage "https://envden.theclau.de"
-  version "0.3.0"
+  version "0.3.1"
   license "MIT"
   on_macos do
     if Hardware::CPU.arm?
       url "https://github.com/notsuhas/envden/releases/download/v#{version}/envden-darwin-arm64"
-      sha256 "561df3873bfaf387d61c5c43fc3aa0ce90b10df5caf2d86c96dc94a9c43e590b"
+      sha256 "44b245955898b81902c655ae89c12f4683c52f2ddb25b253bf7ec323c10c0949"
     else
       url "https://github.com/notsuhas/envden/releases/download/v#{version}/envden-darwin-x64"
-      sha256 "096ed43aa77c3ec265d87d723af1de2b3c3da8b26ca3769ee3c311d8afdbe1f6"
+      sha256 "4214973679e31758b33090037687a06913e88e093e62bf264736bed18a521abc"
     end
   end
   on_linux do
     if Hardware::CPU.arm?
       url "https://github.com/notsuhas/envden/releases/download/v#{version}/envden-linux-arm64"
-      sha256 "360df6a82bb78c6b964c2fd87d745d350f1656c594ecb67c05743369d7f32500"
+      sha256 "2a22dbd5c6d267de092cc7afa75d1f5e00efd9a19a3dc4914c3d0f3f3fd925c4"
     else
       url "https://github.com/notsuhas/envden/releases/download/v#{version}/envden-linux-x64"
-      sha256 "e51d5f7f21f06b345b7dbf879489f40d45f8b9e381b6c7842efc7daea22a44e9"
+      sha256 "9bc5703ec997a76bad88da6a84e0102e4272a774f24f964f05f23f1202577086"
     end
   end
   def install
