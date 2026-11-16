@@ -1,8 +1,8 @@
 class AgentBackbone < Formula
   desc "Automatic refresh and complete-plugin delivery for Skillshare"
   homepage "https://github.com/notsuhas/agent-backbone"
-  url "https://github.com/notsuhas/agent-backbone/releases/download/v0.8.1/agent-backbone-0.8.1.tgz"
-  sha256 "b3c8517698ee8c7a34700c6af16d0a29ffe6190f627af573fd87bb642045fd54"
+  url "https://github.com/notsuhas/agent-backbone/releases/download/v0.9.0/agent-backbone-0.9.0.tgz"
+  sha256 "ccffb668672acbcbb07d61720a9f95d93875a19d13bb335ba81f88fa2327aea4"
   license "MIT"
 
   depends_on "git"
