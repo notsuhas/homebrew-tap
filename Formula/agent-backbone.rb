@@ -1,12 +1,12 @@
 class AgentBackbone < Formula
   desc "Automatic refresh and complete-plugin delivery for Skillshare"
   homepage "https://github.com/notsuhas/agent-backbone"
-  url "https://github.com/notsuhas/agent-backbone/releases/download/v0.8.0/agent-backbone-0.8.0.tgz"
-  sha256 "f54b2f309d7727cb74396b0d2b209e6fb3d067b0ad5c27928ab73314a43ec605"
+  url "https://github.com/notsuhas/agent-backbone/releases/download/v0.8.1/agent-backbone-0.8.1.tgz"
+  sha256 "b3c8517698ee8c7a34700c6af16d0a29ffe6190f627af573fd87bb642045fd54"
   license "MIT"
 
   depends_on "git"
-  depends_on "node@22"
+  depends_on "node"
 
   resource "skillshare" do
     version "0.25.11"
@@ -36,7 +36,7 @@ class AgentBackbone < Formula
     (bin/"agent-backbone").write <<~EOS
       #!/bin/sh
       export AGENT_BACKBONE_COMMAND="#{HOMEBREW_PREFIX}/bin/agent-backbone"
-      exec "#{Formula["node@22"].opt_bin}/node" "#{libexec}/dist/cli.js" "$@"
+      exec "#{Formula["node"].opt_bin}/node" "#{libexec}/dist/cli.js" "$@"
     EOS
     chmod 0755, bin/"agent-backbone"
   end
